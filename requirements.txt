@@ -2,3 +2,7 @@ dnspython==2.2.1
 Pillow==9.2.0
 pymongo==4.1.1
 pyTelegramBotAPI==4.6.0
+Pyrogram==2.0.33
+pytest==7.1.2
+pytest-subprocess==1.4.1
+TgCrypto==1.2.3
