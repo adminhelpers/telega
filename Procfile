@@ -1,2 +1,1 @@
-capture: python time_rice.py
-worker: python main.py
+worker: python time_rice.py & main.py & wait -n
