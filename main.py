@@ -55,7 +55,8 @@ def get_user_info_by_id(message):
         text_info = []
         try: user_id = int(message.text.split(' ')[1])
         except: bot.reply_to(message, f'*Для просмотра информации о участнике, опционально укажите его* ID\n\n_К примеру: /info {message.from_user.id}_', parse_mode= "Markdown")
-        if users.count_documents({"city": 'Angarsk', "ids": user_id}) == 0:
+        if users.count_documents({"ids": user_id, "city": "Angarsk"}) == 0:
+            print(users.find_one({"ids": user_id, "city": "Angarsk"})["type"])
             bot.reply_to(message, f'*Пользователя с указанным ID({user_id}) в списке не найдено.*', parse_mode= "Markdown")
         else:
             user_inv = users.find_one({"city": 'Angarsk', "ids": user_id})
