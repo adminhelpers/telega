@@ -200,14 +200,9 @@ def edit_car_user(message):
         text_info = []
         text_info.append('*Автомобили из Вашей коллекции:*\n')
         auto_users = users.find_one({"ids": message.from_user.id, "type": "going_user"})["auto"]
-        if auto_users[0] != 1:
-            text_info.append(f'  *›* {auto_users[0]}\n')
-        if auto_users[1] != 1:
-            text_info.append(f'  *›* {auto_users[1]}\n')
-        if auto_users[2] != 1:
-            text_info.append(f'  *›* {auto_users[2]}\n')
-        if auto_users[3] != 1:
-            text_info.append(f'  *›* {auto_users[3]}\n')
+        for i in range(0, len(auto_users)):
+            if auto_users[i] != 1
+                text_info.append(f'  *›* {auto_users[i]}\n')
 
         if len(text_info) - 1 >= 4:
             text_info.append('\nНа данный момент, коллекция переполнена _(4/4)_\n**Доступные действия:**'
