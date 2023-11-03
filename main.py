@@ -66,14 +66,9 @@ def get_user_info_by_id(message):
             else:
                 text_info.append('*2.* Зарегистрированные автомоби:\n')
                 auto_users = users.find_one({"ids": user_id, "type": "going_user"})["auto"]
-                if auto_users[0] != 1:
-                    text_info.append(f'  *›* {auto_users[0]}\n')
-                if auto_users[1] != 1:
-                    text_info.append(f'  *›* {auto_users[1]}\n')
-                if auto_users[2] != 1:
-                    text_info.append(f'  *›* {auto_users[2]}\n')
-                if auto_users[3] != 1:
-                    text_info.append(f'  *›* {auto_users[3]}\n')
+                for i in range(0, 4):
+                    if auto_users[i] != 1:
+                        text_info.append(f'  *›* {auto_users[i]}\n')
 
             str_info = ''.join(text_info)
             bot.send_message(message.chat.id, str_info, parse_mode= "Markdown")
